@@ -142,7 +142,7 @@
       background: #131313;
       top: 100%;
       opacity: 1;
-      transition: all 0.5s ease;
+      transition: all 1s ease;
       z-index: 99;
       height: 50vh;
       font-size: 1.6rem;
