@@ -1,3 +1,6 @@
+body {
+    background-color: #c69a16;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+    margin: 5px 15px 0 0;
   }
   
   .image-container img {
@@ -43,11 +46,11 @@
     height: 80px;
     z-index: 1;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1500px;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
   
   #navbar__logo {
