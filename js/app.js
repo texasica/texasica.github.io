@@ -199,6 +199,5 @@ document.addEventListener("DOMContentLoaded", function () {
       arg.jsEvent.preventDefault();
     },
   });
-
   calendar.render();
 });
