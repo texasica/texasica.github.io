@@ -1,6 +1,5 @@
 const menu = document.querySelector("#mobile-menu");
 const menuLinks = document.querySelector(".navbar__menu");
-
 menu.addEventListener("click", function () {
   menu.classList.toggle("is-active");
   menuLinks.classList.toggle("active");
@@ -9,8 +8,9 @@ menu.addEventListener("click", function () {
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
   if (
-    window.scrollY > 0 &&
-    window.innerHeight + window.scrollY + 50 < document.body.offsetHeight
+    window.scrollY > 0
+    &&
+    window.innerHeight + window.scrollY + 1 < document.body.offsetHeight
   ) {
     navbar.classList.remove("navbar-initial");
     navbar.classList.add("navbar-active");
@@ -19,7 +19,6 @@ window.addEventListener("scroll", function () {
     navbar.classList.add("navbar-initial");
   }
 });
-
 
 let sentences = [
   ["Jhalak Dance Competition"],
@@ -76,60 +75,6 @@ var swiper = new Swiper(".swiper-container", {
   },
 });
 
-// const wrapper = document.getElementById("tiles");
-// const gridContainer = document.getElementById("grid-container");
-
-// let columns = 0,
-//   rows = 0,
-//   toggled = false;
-// const toggle = () => {
-//   toggled = !toggled;
-
-//   gridContainer.classList.toggle("toggled");
-// };
-// const handleOnClick = (index) => {
-//   toggle();
-
-//   anime({
-//     targets: ".tile",
-//     opacity: toggled ? 0 : 1,
-//     delay: anime.stagger(50, {
-//       grid: [columns, rows],
-//       from: index,
-//     }),
-//   });
-// };
-// const createTile = (index) => {
-//   const tile = document.createElement("div");
-
-//   tile.classList.add("tile");
-
-//   tile.style.opacity = toggled ? 0 : 1;
-
-//   tile.onclick = (e) => handleOnClick(index);
-
-//   return tile;
-// };
-// const createTiles = (quantity) => {
-//   Array.from(Array(quantity)).map((tile, index) => {
-//     wrapper.appendChild(createTile(index));
-//   });
-// };
-// const createGrid = () => {
-//   wrapper.innerHTML = "";
-
-//   const size = gridContainer.clientWidth > 800 ? 100 : 50;
-//   columns = Math.floor(gridContainer.clientWidth / size);
-//   rows = Math.floor(gridContainer.clientHeight / size);
-//   wrapper.style.setProperty("--columns", columns);
-//   wrapper.style.setProperty("--rows", rows);
-
-//   createTiles(columns * rows);
-// };
-
-// createGrid();
-
-// window.onresize = () => createGrid();
 const subtitle = document.getElementsByClassName("card-subtitle")[0];
 const words = subtitle.getElementsByTagName("span");
 let observer;
@@ -154,7 +99,7 @@ const addWord = (text, index) => {
 
 const createSubtitle = (text) => text.split(" ").map(addWord);
 
-createSubtitle("Community Recreation Culture");
+createSubtitle("Culture Community Camaraderie");
 
 // Check if device is a touch device
 // if (window.innerWidth <= 800 && window.innerHeight <= 600) {
@@ -184,16 +129,30 @@ createSubtitle("Community Recreation Culture");
 //   // Observe card
 //   observer.observe(card);
 // }
-const blob = document.getElementById("blob");
 
+const blob = document.getElementById("blob");
 window.onpointermove = (event) => {
+  console.log("Blob loc", blob.offsetLeft, blob.offsetTop);
+
   const { clientX, clientY } = event;
   const maxLeft = window.innerWidth - blob.offsetWidth / 2;
-  const maxTop = window.innerHeight - blob.offsetHeight / 2;
+  const maxTop =
+    (document.documentElement.scrollTop || document.body.scrollTop) +
+    blob.style.height -
+    blob.offsetHeight / 2;
 
   const left = Math.min(clientX, maxLeft);
-  const top = Math.min(clientY, maxTop);
-
+  // const left = clientX;
+  var top =
+    clientY +
+    (document.documentElement.scrollTop || document.body.scrollTop) -
+    Math.round(window.innerHeight);
+  var top = Math.min(top, maxTop);
+  console.log("left, top", left, top);
+  console.log(
+    "scroll",
+    document.documentElement.scrollTop || document.body.scrollTop
+  );
   blob.animate(
     {
       left: `${left}px`,
@@ -202,3 +161,48 @@ window.onpointermove = (event) => {
     { duration: 3000, fill: "forwards" }
   );
 };
+
+const blur = document.getElementById("blur");
+if (
+  document.getElementById("int-cont").clientHeight >=
+  25 + Math.round(window.innerHeight)
+) {
+  blur.style.height =
+    document.getElementById("int-cont").clientHeight +
+    Math.round(window.innerHeight) + 'px';
+} else {
+  blur.style.height = blur.style.height + 'px';
+}
+ 
+
+document.addEventListener("DOMContentLoaded", function () {
+  var calendarEl = document.getElementById("calendar");
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    headerToolbar: {
+      left: "prev,next today",
+      center: "title",
+      right: "dayGridMonth,listYear",
+    },
+    buttonText: {
+      today: "Today",
+      month: "Month",
+      list: "List",
+    },
+    displayEventTime: false,
+    // plugins: ["googleCalendarPlugin"],
+    googleCalendarApiKey: "AIzaSyB7j0L1ZR2jU695_76m7fWT19JDzR2_j3s",
+
+    events: {
+      googleCalendarId:
+        "b85e3d63899cd189932469da55cb4d858511742f7e3e9bb09607b680d6d68ff8@group.calendar.google.com",
+    },
+    eventClick: function (arg) {
+      window.open(arg.event.url, "_blank", "width=700,height=600");
+
+      arg.jsEvent.preventDefault();
+    },
+  });
+
+  calendar.render();
+});

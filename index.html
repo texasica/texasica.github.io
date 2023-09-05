@@ -46,6 +46,8 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
     <!-- Swiper JS -->
+    <script src="./js/fullcalendar-6.1.8/dist/index.global.js"></script>
+    <script src="./js/fullcalendar-6.1.8//packages/google-calendar/index.global.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
 
     <!-- Typed JS -->
@@ -72,17 +74,17 @@
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="/" class="navbar__links">Home</a>
+            <a href="#top" class="navbar__links">Home</a>
           </li>
           <li class="navbar__item">
-            <a href="/events.html" class="navbar__links">Events</a>
+            <a href="#calendar" class="navbar__links">Events</a>
           </li>
           <li class="navbar__item">
             <a href="/aboutICA.html" class="navbar__links">Info</a>
           </li>
           <li class="navbar__btn">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdP6FLi6cYf3rVLiMoAosSc3c0xVc7EZKgi20gjacA008KFzQ/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSepORCW76BEKmd8SGiIxnwtcnGpravCu6z0dOsWjUMcalcDeQ/viewform?usp=sf_link"
               target="_blank"
               rel="noopener noreferrer"
               class="button"
@@ -93,7 +95,6 @@
         </ul>
       </div>
     </nav>
-
 
     <div class="header-container">
       <div class="swiper-container">
@@ -136,23 +137,21 @@
       </div>
     </div>
 
+    <div id="blur"></div>
+    <div id="blob"></div>
 
-
-    <div style="overflow: hidden">
-      <div id="blur"></div>
-      <div id="blob"></div>
-    </div>
-
-    <div class="interactive-container">
+    <div id ="int-cont" class="interactive-container">
       <div class="card-wrapper" id="hoverCard">
         <div class="card">
           <div class="card-content">
-            <h3 class="card-title" id="firstHoverTitle">Why Choose ICA?</h3>
+            <h3 class="card-title">Why Choose ICA?</h3>
             <h4 class="card-subtitle"></h4>
           </div>
         </div>
       </div>
+      <div id="calendar"></div>
     </div>
+
     <script src="./js/app.js"></script>
   </body>
 </html>

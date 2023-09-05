@@ -6,14 +6,18 @@
   --g3: #046a38;
   --g4: #0015ff;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-
   z-index: 1;
   background-color: #131313;
   font-family: "Hind", sans-serif;
   clip-path: inset(0 0 0 0);
   margin: 0;
+  overflow: auto;
 }
 
 * {
@@ -84,7 +88,7 @@ body {
 /* Navbar Stuff */
 .navbar {
   background: #181818;
-  height: 70px;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,8 +191,6 @@ body {
   background-color: #e3763d;
   transition: background-color 0.3s ease;
 }
-
-
 
 .header-container {
   position: relative;
@@ -341,17 +343,7 @@ body {
 
 .card-wrapper {
   z-index: 3;
-  margin: 2rem 2.5rem;
-  background-color: rgb(10, 10, 10);
-  display: grid;
-  height: auto;
-  padding: 0;
-  place-items: center;
-  width: 30rem;
-}
-#end-card-wrapper {
-  z-index: 3;
-  margin: 2rem 1.25% 2rem 0%;
+  margin: 3.5rem 2.5rem;
   background-color: rgb(10, 10, 10);
   display: grid;
   height: auto;
@@ -484,21 +476,11 @@ body {
 
 .interactive-container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: hidden;
 }
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
 
-  50% {
-    scale: 1 1.5;
-  }
-
-  to {
-    rotate: 360deg;
-  }
-}
 #blob {
   background-color: white;
   height: 34vmax;
@@ -509,7 +491,6 @@ body {
   translate: -50% 100%;
   border-radius: 50%;
   background: linear-gradient(to bottom, var(--g1), var(--g3));
-  /* animation: rotate 20s infinite; */
   opacity: 0.8;
   z-index: 1;
   overflow: hidden;
@@ -520,7 +501,28 @@ body {
   position: absolute;
   z-index: 2;
   backdrop-filter: blur(12vmax);
+  overflow-y: hidden;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer {
   background-color: #f8f9fa;
@@ -552,6 +554,48 @@ body {
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+
+#calendar {
+  z-index: 3;
+  margin: 2rem 2.5rem;
+  display: grid;
+  height: auto;
+  padding: 0;
+  flex-grow: 1;
+}
+.fc .fc-button {
+  color: #ffffff;
+}
+
+
+.fc .fc-toolbar-title {
+  color: #ffffff;
+}
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-top {
+  color: #ffffff !important;
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-daygrid-day-frame {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.fc .fc-event-title {
+  color: #ffffff;
+}
+.fc .fc-list-event-title {
+  color: #ffffff;
+}
+.fc .fc-list-event-title:hover {
+  color: #000;
+}
+
+
+.contact-about-me {
+  height: 25rem;
 }
 
 @media screen and (max-width: 960px) {
@@ -709,6 +753,7 @@ body {
     height: 0;
   }
   .interactive-container {
+
     display: flex;
     flex-direction: column;
   }
