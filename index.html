@@ -44,8 +44,17 @@
       href="/images/favicon_io/android-chrome-192x192.png"
     />
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="./css/swiper-bundle.min.css" /> -->
     <!-- Swiper JS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("aI7cEPtV4hxXNZyct");
+      })();
+    </script>
     <script src="./js/fullcalendar-6.1.8/dist/index.global.js"></script>
     <script src="./js/fullcalendar-6.1.8//packages/google-calendar/index.global.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
@@ -53,7 +62,7 @@
     <!-- Typed JS -->
     <script src="./js/typed.js"></script>
     <!-- Anime JS -->
-    <script src="./js/anime.min.js"></script>
+    <!-- <script src="./js/anime.min.js"></script> -->
     <script src="./js/jquery.js"></script>
   </head>
 
@@ -74,13 +83,13 @@
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="#top" class="navbar__links">Home</a>
+            <a id="goHome" href="#home" class="navbar__links">Home</a>
           </li>
           <li class="navbar__item">
             <a href="#calendar" class="navbar__links">Events</a>
           </li>
           <li class="navbar__item">
-            <a href="/aboutICA.html" class="navbar__links">Info</a>
+            <a href="#info" class="navbar__links">Info</a>
           </li>
           <li class="navbar__btn">
             <a
@@ -95,7 +104,7 @@
         </ul>
       </div>
     </nav>
-
+    <div id="home"></div>
     <div class="header-container">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -139,19 +148,92 @@
 
     <div id="blur"></div>
     <div id="blob"></div>
+    <div id="int-cont">
+      <div id="int-cont" class="interactive-container">
+        <div class="card-wrapper" id="hoverCard">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Why Choose ICA?</h3>
+              <h4 class="card-subtitle"></h4>
+            </div>
+          </div>
+        </div>
+        <div id="calendar"></div>
+      </div>
 
-    <div id ="int-cont" class="interactive-container">
-      <div class="card-wrapper" id="hoverCard">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="card-title">Why Choose ICA?</h3>
-            <h4 class="card-subtitle"></h4>
+      <div id="info" class="container">
+        <div class="contact-about-us">
+          <div class="about-us">
+            <div class="about-us-big">About Us</div>
+            <div class="about-us-text">
+              Indian Cultural Association seeks to increase awareness about the
+              South Asian heritage at The University of Texas at Austin. Founded
+              on the three tenets of culture, community, and camaraderie, the
+              Indian Cultural Association serves students as a cultural liaison
+              to spread influence of the Indian ethnic identity. With various
+              social, service, cultural, and professional events, our ultimate
+              mission is to foster a strong appreciation for diversity and the
+              preservation of the Indian culture on the campus and in the
+              community as a whole.
+            </div>
+          </div>
+          <div class="contact-form-container">
+            <div class="contact-form-header">Contact Us</div>
+            <form onsubmit="handleFormSubmit(event)">
+              <label class="contact-form-label" for="uniqueName">Name</label>
+              <input
+                type="text"
+                id="uniqueName"
+                name="from_name"
+                class="contact-form-input"
+                required
+              />
+
+              <label class="contact-form-label" for="uniqueEmail">Email</label>
+              <input
+                type="email"
+                id="uniqueEmail"
+                name="reply_to"
+                class="contact-form-input"
+                required
+              />
+
+              <label class="contact-form-label" for="uniqueMessage"
+                >Message</label
+              >
+              <textarea
+                id="uniqueMessage"
+                name="message"
+                class="contact-form-textarea"
+                required
+              ></textarea>
+
+              <button type="submit" class="contact-form-button">Submit</button>
+            </form>
           </div>
         </div>
       </div>
-      <div id="calendar"></div>
     </div>
 
     <script src="./js/app.js"></script>
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data);
+        emailjs
+          .send("service_7ach1ud", "template_2z9w33t", data)
+          .then((response) => {
+            console.log("Email sent successfully:", response);
+            alert("Email sent successfully");
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+            alert("Error sending email");
+          });
+      }
+    </script>
   </body>
 </html>

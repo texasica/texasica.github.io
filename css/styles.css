@@ -25,6 +25,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Navbar Logo */
 #navbar__logo:hover {
   background-color: #aacdd1;
@@ -276,87 +277,32 @@ body {
 }
 
 /* Body Main Section Start */
-/* Tiles */
-/* @keyframes background-pan {
-  from {
-    background-position: 0% center;
-  }
 
-  to {
-    background-position: -200% center;
-  }
-} */
-
-/* #grid-container {
-  z-index: 3;
-  margin: 2rem 2.5% 2rem 2.5%;
-  width: 30rem;
-  animation: background-pan 10s linear infinite;
-  background: linear-gradient(to bottom, var(--g1), var(--g4), var(--g3));
-  background-size: 200%;
-  height: auto;
+.interactive-container {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
   overflow: hidden;
 }
-
-#grid-container.toggled {
-  animation: none;
-}
-
-#grid-container.toggled > #title {
-  opacity: 0;
-}
-
-#grid-container.toggled > #icon {
-  opacity: 1;
-}
-
-#grid-container.toggled > #tiles > .tile:hover {
-  opacity: 0.1 !important;
-} */
-/* 
-#tiles {
-  height: calc(100% - 1px);
-  width: calc(50%- 1px);
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);
-  grid-template-rows: repeat(var(--rows), 1fr);
-}
-
-.tile {
-  cursor: pointer;
-  position: relative;
-}
-
-.tile:hover:before {
-  background-color: rgb(20, 20, 30);
-}
-
-.tile:before {
-  background-color: rgb(10, 10, 10);
-  content: "";
-  inset: 0.5px;
-  position: absolute;
-} */
-
+/* Card Stuff (Why Choose ICA?) */
 .card-wrapper {
   z-index: 3;
   margin: 3.5rem 2.5rem;
   background-color: rgb(10, 10, 10);
-  display: grid;
+  display: inline-block;
   height: auto;
   padding: 0;
   place-items: center;
   width: 30rem;
+  max-height: 48rem;
+  aspect-ratio: 1/1.6;
 }
 .card {
   aspect-ratio: 1 / 1.6;
   border: 0.5vmin solid var(--border);
   cursor: pointer;
   position: relative;
-  width: 30rem;
+  width: 100%;
   height: auto;
 }
 
@@ -404,7 +350,6 @@ body {
     120deg,
     transparent 0% 33%,
     var(--g1) 75%,
-    var(--g2) 83.5%,
     var(--g3) 100%
   );
   background-position: 0% 0%;
@@ -444,7 +389,7 @@ body {
 }
 
 .card-title {
-  font-size: 6vmin;
+  font-size: 3rem;
 }
 
 .card-subtitle {
@@ -474,12 +419,7 @@ body {
   z-index: 2;
 }
 
-.interactive-container {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100%;
-  overflow: hidden;
-}
+/* Mouse Trailer */
 
 #blob {
   background-color: white;
@@ -504,58 +444,6 @@ body {
   overflow-y: hidden;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.footer {
-  background-color: #f8f9fa;
-  color: #333;
-  margin-top: 1rem;
-  padding: 20px 0;
-  font-size: 14px;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-links {
-  display: flex;
-  gap: 10px;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
 #calendar {
   z-index: 3;
   margin: 2rem 2.5rem;
@@ -564,10 +452,11 @@ body {
   padding: 0;
   flex-grow: 1;
 }
+
+/* Calendar */
 .fc .fc-button {
   color: #ffffff;
 }
-
 
 .fc .fc-toolbar-title {
   color: #ffffff;
@@ -593,9 +482,85 @@ body {
   color: #000;
 }
 
+/* About Us */
+.contact-about-us {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 30rem;
+  width: auto;
+  margin: 3rem;
+}
+.about-us {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin-right: 2.5rem ;
+}
+.about-us-big {
+  font-size: 2.5rem;
+  line-height: 1.6;
+  /* margin: 1.5rem 0; */
+  color: #fff;
+  z-index: 3;
+}
+.about-us-text {
+  width: 100%;
+  font-size: 1.25rem;
+  text-align: justify;
+  line-height: 1.6;
+  margin: 2rem 0;
+  color: #fff;
+  z-index: 3;
+}
+.contact-form-container {
 
-.contact-about-me {
-  height: 25rem;
+  width: 100%;
+  border-radius: 5px;
+  /* margin: 50px auto; */
+  z-index: 3;
+  flex-grow: 1;
+}
+.contact-form-header {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contact-form-label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.contact-form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.contact-form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 100px;
+}
+.contact-form-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #aacdd1;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+}
+.contact-form-button:hover {
+  color: #fff;
+  background-color: #43a2ac;
 }
 
 @media screen and (max-width: 960px) {
@@ -753,7 +718,6 @@ body {
     height: 0;
   }
   .interactive-container {
-
     display: flex;
     flex-direction: column;
   }

@@ -5,11 +5,15 @@ menu.addEventListener("click", function () {
   menuLinks.classList.toggle("active");
 });
 
+document.getElementById("goHome").addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo(0, 1);
+});
+
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
   if (
-    window.scrollY > 0
-    &&
+    window.scrollY > 0 &&
     window.innerHeight + window.scrollY + 1 < document.body.offsetHeight
   ) {
     navbar.classList.remove("navbar-initial");
@@ -132,33 +136,28 @@ createSubtitle("Culture Community Camaraderie");
 
 const blob = document.getElementById("blob");
 window.onpointermove = (event) => {
-  console.log("Blob loc", blob.offsetLeft, blob.offsetTop);
+
 
   const { clientX, clientY } = event;
   const maxLeft = window.innerWidth - blob.offsetWidth / 2;
   const maxTop =
     (document.documentElement.scrollTop || document.body.scrollTop) +
-    blob.style.height -
+    blob.style.height / 2 -
     blob.offsetHeight / 2;
 
   const left = Math.min(clientX, maxLeft);
-  // const left = clientX;
+
   var top =
     clientY +
     (document.documentElement.scrollTop || document.body.scrollTop) -
     Math.round(window.innerHeight);
   var top = Math.min(top, maxTop);
-  console.log("left, top", left, top);
-  console.log(
-    "scroll",
-    document.documentElement.scrollTop || document.body.scrollTop
-  );
   blob.animate(
     {
       left: `${left}px`,
       top: `${top}px`,
     },
-    { duration: 3000, fill: "forwards" }
+    { duration: 1000, fill: "forwards" }
   );
 };
 
@@ -167,13 +166,10 @@ if (
   document.getElementById("int-cont").clientHeight >=
   25 + Math.round(window.innerHeight)
 ) {
-  blur.style.height =
-    document.getElementById("int-cont").clientHeight +
-    Math.round(window.innerHeight) + 'px';
+  blur.style.height = document.getElementById("int-cont").clientHeight + "px";
 } else {
-  blur.style.height = blur.style.height + 'px';
+  blur.style.height = blur.style.height + "px";
 }
- 
 
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
