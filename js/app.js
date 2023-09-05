@@ -168,41 +168,75 @@ if (
 } else {
   blur.style.height = blur.style.height + "px";
 }
+if (document.body.clientWidth > 960) {
+  document.addEventListener("DOMContentLoaded", function () {
+    var calendarEl = document.getElementById("calendar");
 
-document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,listYear",
+      },
+      buttonText: {
+        today: "Today",
+        month: "Month",
+        list: "List",
+      },
+      displayEventTime: false,
+      // plugins: ["googleCalendarPlugin"],
+      googleCalendarApiKey: "AIzaSyB7j0L1ZR2jU695_76m7fWT19JDzR2_j3s",
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    headerToolbar: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,listYear",
-    },
-    buttonText: {
-      today: "Today",
-      month: "Month",
-      list: "List",
-    },
-    displayEventTime: false,
-    // plugins: ["googleCalendarPlugin"],
-    googleCalendarApiKey: "AIzaSyB7j0L1ZR2jU695_76m7fWT19JDzR2_j3s",
+      events: {
+        googleCalendarId:
+          "b85e3d63899cd189932469da55cb4d858511742f7e3e9bb09607b680d6d68ff8@group.calendar.google.com",
+      },
+      eventClick: function (arg) {
+        window.open(arg.event.url, "_blank", "width=700,height=600");
 
-    events: {
-      googleCalendarId:
-        "b85e3d63899cd189932469da55cb4d858511742f7e3e9bb09607b680d6d68ff8@group.calendar.google.com",
-    },
-    eventClick: function (arg) {
-      window.open(arg.event.url, "_blank", "width=700,height=600");
-
-      arg.jsEvent.preventDefault();
-    },
+        arg.jsEvent.preventDefault();
+      },
+    });
+    calendar.render();
   });
-  calendar.render();
-});
+} else {
+  document.addEventListener("DOMContentLoaded", function () {
+    var calendarEl = document.getElementById("calendar");
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      height: "auto",
+      contentHeight: "auto",
+      headerToolbar: {
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,listYear",
+      },
+      buttonText: {
+        today: "Today",
+        month: "Month",
+        list: "List",
+      },
+      displayEventTime: false,
+      // plugins: ["googleCalendarPlugin"],
+      googleCalendarApiKey: "AIzaSyB7j0L1ZR2jU695_76m7fWT19JDzR2_j3s",
+
+      events: {
+        googleCalendarId:
+          "b85e3d63899cd189932469da55cb4d858511742f7e3e9bb09607b680d6d68ff8@group.calendar.google.com",
+      },
+      eventClick: function (arg) {
+        window.open(arg.event.url, "_blank", "width=700,height=600");
+
+        arg.jsEvent.preventDefault();
+      },
+    });
+    calendar.render();
+  });
+}
 
 if (document.body.clientWidth < 960) {
   blob.remove();
   blur.remove();
-  document.getElementById("info").style.height =
-    Math.round(window.innerHeight) * 1.5 + "px";
+  // document.getElementById("info").style.height =
+  //   Math.round(window.innerHeight) * 1.5 + "px";
 }

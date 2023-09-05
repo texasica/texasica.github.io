@@ -471,7 +471,10 @@ body {
   color: #ffffff;
   border-color: #ffffff;
 }
-
+.fc .fc-scrollgrid-section-header {
+  height: 0;
+  display: none;
+}
 .fc .fc-event-title {
   color: #ffffff;
 }
@@ -686,7 +689,7 @@ body {
     margin: 0 0 0 0;
     background-color: rgb(10, 10, 10);
     display: grid;
-    height: 75vh;
+    height: 60vh;
     padding: 0;
     place-items: center;
     width: 100%;
@@ -747,5 +750,31 @@ body {
   .blur {
     height: 0;
     display: none !important;
+  }
+  #calendar {
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+  }
+  #int-cont{
+    flex-direction: column;
+  }
+  .container {
+
+    min-height: 185vh; /* This will ensure that the container takes at least the full viewport height */
+  flex-grow: 1;
+    overflow: auto;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.5rem;
+  }
+  .fc .fc-scrollgrid-section-header {
+    height: 0;
+    display: none;
+  }
+  .fc .fc-toolbar-chunk {
+    margin: 0;
   }
 }
