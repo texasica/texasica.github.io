@@ -136,8 +136,6 @@ createSubtitle("Culture Community Camaraderie");
 
 const blob = document.getElementById("blob");
 window.onpointermove = (event) => {
-
-
   const { clientX, clientY } = event;
   const maxLeft = window.innerWidth - blob.offsetWidth / 2;
   const maxTop =
@@ -201,3 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   calendar.render();
 });
+
+if (document.body.clientWidth < 960) {
+  blob.remove();
+  blur.remove();
+  document.getElementById("info").style.height =
+    Math.round(window.innerHeight) * 1.5 + "px";
+}
