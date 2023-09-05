@@ -155,7 +155,7 @@ window.onpointermove = (event) => {
       left: `${left}px`,
       top: `${top}px`,
     },
-    { duration: 1000, fill: "forwards" }
+    { duration: 2000, fill: "forwards" }
   );
 };
 
