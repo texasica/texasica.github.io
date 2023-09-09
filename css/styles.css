@@ -8,6 +8,7 @@
 }
 html {
   scroll-behavior: smooth;
+  margin: 0 auto;
 }
 
 body {
@@ -757,13 +758,12 @@ body {
     margin: 0;
     overflow: auto;
   }
-  #int-cont{
+  #int-cont {
     flex-direction: column;
   }
   .container {
-
     min-height: 185vh; /* This will ensure that the container takes at least the full viewport height */
-  flex-grow: 1;
+    flex-grow: 1;
     overflow: auto;
     height: auto;
     margin-bottom: 3rem;
@@ -777,5 +777,22 @@ body {
   }
   .fc .fc-toolbar-chunk {
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #calendar
+  {
+    
+    
+    float:right !important;
+    position: absolute;
+    height: 60vh;
+    width: 40%;
+    right: 0;
+  }
+  .contact-about-us
+  {
+    margin-top: 2rem;
   }
 }
