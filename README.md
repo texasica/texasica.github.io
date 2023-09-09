@@ -1,1 +1,1 @@
-This project was written and built out by Akhil Deshpande.
+This project was written and is maintained by Akhil Deshpande @adeshpande03. It is the website for UT Austin's Indian Cultural Association.
