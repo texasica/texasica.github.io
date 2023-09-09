@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Texas ICA</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/lsy7jpl.css" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon_io/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="/images/favicon_io/android-chrome-192x192.png"
+    />
+    
+    <!-- Swiper CSS -->
+    <!-- <link rel="stylesheet" href="./css/swiper-bundle.min.css" /> -->
+    <!-- Swiper JS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("aI7cEPtV4hxXNZyct");
+      })();
+    </script>
+    <script src="./js/fullcalendar-6.1.8/dist/index.global.js"></script>
+    <script src="./js/fullcalendar-6.1.8//packages/google-calendar/index.global.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+
+    <!-- Typed JS -->
+    <script src="./js/typed.js"></script>
+    <!-- Anime JS -->
+    <!-- <script src="./js/anime.min.js"></script> -->
+    <script src="./js/jquery.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-initial" id="navbar">
+      <div class="navbar__container">
+        <a href="#home" id="navbar__logo">
+          <img
+            class="image-container"
+            src="./images/Logo_Icon/icahd.png"
+            alt="ICA Logo"
+          />
+          ICA</a
+        >
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a id="goHome" href="#home" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#calendar" class="navbar__links">Events</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#info" class="navbar__links">Info</a>
+          </li>
+          <li class="navbar__btn">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSepORCW76BEKmd8SGiIxnwtcnGpravCu6z0dOsWjUMcalcDeQ/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button"
+            >
+              Sign Up
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="home"></div>
+    <div class="header-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="opaque">
+              <img
+                src="./images/Header_Slideshow/ICA_Board_1.jpg"
+                alt="Image 1"
+              />
+            </div>
+            <span class="typed-text"></span>
+          </div>
+          <div class="swiper-slide">
+            <div class="opaque">
+              <img
+                src="./images/Header_Slideshow/ICA_Mimosas_1.jpg"
+                alt="Image 2"
+              />
+            </div>
+            <span class="typed-text"></span>
+          </div>
+          <div class="swiper-slide">
+            <div class="opaque">
+              <img src="./images/Header_Slideshow/JWM.jpg" alt="Image 3" />
+            </div>
+            <span class="typed-text"></span>
+          </div>
+          <div class="swiper-slide">
+            <div class="opaque">
+              <img
+                src="./images/Header_Slideshow/ICA_Barge_1.jpg"
+                alt="Image 4"
+              />
+            </div>
+            <span class="typed-text"></span>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div id="blur"></div>
+    <div id="blob"></div>
+    <div id="int-cont">
+      <div class="interactive-container">
+        <div class="card-wrapper" id="hoverCard">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Why Choose ICA?</h3>
+              <h4 class="card-subtitle"></h4>
+            </div>
+          </div>
+        </div>
+        <div id="calendar"></div>
+      </div>
+
+      <div id="info" class="container">
+        <div class="contact-about-us">
+          <div class="about-us">
+            <div class="about-us-big">About Us</div>
+            <div class="about-us-text">
+              Indian Cultural Association seeks to increase awareness about the
+              South Asian heritage at The University of Texas at Austin. Founded
+              on the three tenets of culture, community, and camaraderie, the
+              Indian Cultural Association serves students as a cultural liaison
+              to spread influence of the Indian ethnic identity. With various
+              social, service, cultural, and professional events, our ultimate
+              mission is to foster a strong appreciation for diversity and the
+              preservation of the Indian culture on the campus and in the
+              community as a whole.
+            </div>
+          </div>
+          <div class="contact-form-container">
+            <div class="contact-form-header">Contact Us</div>
+            <form onsubmit="handleFormSubmit(event)">
+              <label class="contact-form-label" for="uniqueName">Name</label>
+              <input
+                type="text"
+                id="uniqueName"
+                name="from_name"
+                class="contact-form-input"
+                required
+              />
+
+              <label class="contact-form-label" for="uniqueEmail">Email</label>
+              <input
+                type="email"
+                id="uniqueEmail"
+                name="reply_to"
+                class="contact-form-input"
+                required
+              />
+
+              <label class="contact-form-label" for="uniqueMessage"
+                >Message</label
+              >
+              <textarea
+                id="uniqueMessage"
+                name="message"
+                class="contact-form-textarea"
+                required
+              ></textarea>
+
+              <button type="submit" class="contact-form-button">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data);
+        emailjs
+          .send("service_7ach1ud", "template_2z9w33t", data)
+          .then((response) => {
+            console.log("Email sent successfully:", response);
+            alert("Email sent successfully");
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+            alert("Error sending email");
+          });
+      }
+    </script>
+  </body>
+</html>
