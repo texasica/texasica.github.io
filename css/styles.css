@@ -485,7 +485,13 @@ body {
 .fc .fc-list-event-title:hover {
   color: #000;
 }
-
+.fc-event-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: .8em; /* You can adjust the font size to make the text fit better */
+}
 /* About Us */
 .contact-about-us {
   display: flex;
